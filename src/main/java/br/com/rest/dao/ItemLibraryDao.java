@@ -10,16 +10,15 @@ public class ItemLibraryDao extends Dao {
 		boolean SUCESS = false;
 		try{
 			open();
-			stmt = con.prepareStatement("insert into itemlibrary values(?,?,?,?,?,?,?)");
-
+			stmt = con.prepareStatement("insert into itemlibrary values(?,?,?,?,?,?,?,?)");
 			stmt.setString(1, null);
 			stmt.setString(2, itemLibrary.getTitulo());
 			stmt.setString(3, itemLibrary.getTipo());
-			stmt.setString(3, itemLibrary.getData());
-			stmt.setString(3, itemLibrary.getNumeroEdicao());
-			stmt.setString(3, itemLibrary.getAutor());
-			stmt.setString(3, itemLibrary.getEditora());
-			stmt.setString(4, itemLibrary.getDescricao());
+			stmt.setString(4, itemLibrary.getData());
+			stmt.setString(5, itemLibrary.getNumeroEdicao());
+			stmt.setString(6, itemLibrary.getAutor());
+			stmt.setString(7, itemLibrary.getEditora());
+			stmt.setString(8, itemLibrary.getDescricao());
 			stmt.execute();
 			SUCESS = true;	
 		}catch(SQLException e){
@@ -33,8 +32,7 @@ public class ItemLibraryDao extends Dao {
 		boolean SUCESS = false;
 		try{
 			open();
-			stmt = con.prepareStatement("update itemlibrary set titulo=?, tipo=?, data=?, numeroEdicao=?, autor=?, editora=?, descricao=? where codigo=?");
-			
+			stmt = con.prepareStatement("update itemlibrary set titulo=?, tipo=?, dataP=?, numeroEdicao=?, autor=?, editora=?, descricao=? where codigo=?");			
 			stmt.setString(1, itemLibrary.getTitulo());
 			stmt.setString(2, itemLibrary.getTipo());
 			stmt.setString(3, itemLibrary.getData());
@@ -42,7 +40,7 @@ public class ItemLibraryDao extends Dao {
 			stmt.setString(5, itemLibrary.getAutor());
 			stmt.setString(6, itemLibrary.getEditora());
 			stmt.setString(7, itemLibrary.getDescricao());
-			stmt.setString(8, itemLibrary.getCodigo());
+			stmt.setInt(8, itemLibrary.getCodigo());
 			stmt.execute();
 			SUCESS = true;	
 		}catch(SQLException e){
@@ -57,7 +55,7 @@ public class ItemLibraryDao extends Dao {
 		try{
 			open();
 			stmt = con.prepareStatement("detete from itemlibrary where codigo=?");
-			stmt.setString(1, itemLibrary.getCodigo());
+			stmt.setInt(1, itemLibrary.getCodigo());
 			stmt.execute();
 			SUCESS = true;	
 		}catch(SQLException e){

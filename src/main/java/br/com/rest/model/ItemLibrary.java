@@ -12,7 +12,7 @@ public class ItemLibrary {
 	private String autor;
 	private String editora;
 	private String descricao;
-	//private String imagem;
+	private int codigo; 
 
 	public ItemLibrary() {
 		super();
@@ -26,12 +26,14 @@ public class ItemLibrary {
 		this.numeroEdicao = numeroEdicao;
 		this.editora = editora;
 		this.descricao = descricao;
+		
 	}
 
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -57,7 +59,7 @@ public class ItemLibrary {
 	}
 
 	public String getNumeroEdicao() {
-		return edicao;
+		return numeroEdicao;
 	}
 
 	public void setNumeroEdicao(String numeroEdicao) {

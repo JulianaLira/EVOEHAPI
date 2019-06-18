@@ -3,11 +3,13 @@ package br.com.rest.resource;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.DELETE;
 
 import br.com.rest.dao.ItemLibraryDao;
 import br.com.rest.model.ItemLibrary;
@@ -57,11 +59,11 @@ public class ItemLibraryResource {
 		}
 	}
 
-	@DEL
+	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/excluir/{id}")
-	public Response alterarItem(ItemLibrary itemLibrary){
+	public Response excluirItem(ItemLibrary itemLibrary){
 		try{
 			boolean isItemGravado = new ItemLibraryDao().excluir(itemLibrary);
 			if(isItemGravado){
