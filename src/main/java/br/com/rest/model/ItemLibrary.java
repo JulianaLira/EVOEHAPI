@@ -6,18 +6,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ItemLibrary {
 	
 	private String titulo;
+	private String tipo;
+	private String data;
+	private String numeroEdicao;
 	private String autor;
-	private String assunto;
-	
+	private String editora;
+	private String descricao;
+	//private String imagem;
+
 	public ItemLibrary() {
 		super();
 	}
 
-	public ItemLibrary(String titulo, String autor, String assunto) {
+	public ItemLibrary(String titulo, String tipo, String data, String numeroEdicao, String autor, String editora, String descricao) {
 		super();
 		this.titulo = titulo;
-		this.autor = autor;
-		this.assunto = assunto;
+		this.tipo = tipo;
+		this.data = data;
+		this.numeroEdicao = numeroEdicao;
+		this.editora = editora;
+		this.descricao = descricao;
 	}
 
 	public String getTitulo() {
@@ -28,6 +36,30 @@ public class ItemLibrary {
 		this.titulo = titulo;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getDada() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getNumeroEdicao() {
+		return edicao;
+	}
+
+	public void setNumeroEdicao(String numeroEdicao) {
+		this.numeroEdicao = numeroEdicao;
+	}
+
 	public String getAutor() {
 		return autor;
 	}
@@ -36,18 +68,17 @@ public class ItemLibrary {
 		this.autor = autor;
 	}
 
-	public String getAssunto() {
-		return assunto;
+	public String getEditora() {
+		return editora;
 	}
 
-	public void setAssunto(String assunto) {
-		this.assunto = assunto;
+	public void setEditora(String editora) {
+		this.editora = editora;
 	}
 
 	@Override
 	public String toString() {
-		return "ItemLibrary [titulo=" + titulo + ", autor=" + autor + ", assunto=" + assunto + "]";
+		return "ItemLibrary [titulo=" + titulo + "tipo=" + tipo + "data=" + data + "numeroEdicao=" + numeroEdicao + "autor=" + autor + "editora=" + editora + "descricao=" + descricao + "]";
 	}
-	
 	
 }

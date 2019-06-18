@@ -31,7 +31,6 @@ public class ItemLibraryResource {
 		}catch(Exception e){
 			return Response.status(500).entity("Erro de banco").build();
 		}
-		
 	}
 	
 	@GET
@@ -40,5 +39,21 @@ public class ItemLibraryResource {
 	public String getID(@PathParam("id") int id){
 		return "<HTML><BODY>Fui no servidor e voltei - id="+id+"</BODY></HTML>";
 	}
-	
+
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/cadastrar")
+	public Response alterarItem(ItemLibrary itemLibrary){
+		try{
+			boolean isItemGravado = new ItemLibraryDao().alterar(itemLibrary);
+			if(isItemGravado){
+				return Response.ok().entity(itemLibrary).build();
+			}else{
+				return Response.status(500).entity("Erro ao alterar o item no banco").build();
+			}
+		}catch(Exception e){
+			return Response.status(500).entity("Erro de banco").build();
+		}
+	}
 }
