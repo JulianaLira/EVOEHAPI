@@ -51,4 +51,19 @@ public class ItemLibraryDao extends Dao {
 		}			
 		return SUCESS;
 	}
+
+	public boolean excluir(ItemLibrary itemLibrary) throws Exception{
+		boolean SUCESS = false;
+		try{
+			open();
+			stmt = con.prepareStatement("detete from itemlibrary where codigo=?");
+			stmt.setString(1, itemLibrary.getCodigo());
+			stmt.execute();
+			SUCESS = true;	
+		}catch(SQLException e){
+			System.out.println("Código de erro: "+e.getErrorCode()+" Texto"
+					+ " erro: "+e.getMessage());
+		}			
+		return SUCESS;
+	}
 }

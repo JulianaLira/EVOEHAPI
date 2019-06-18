@@ -43,7 +43,7 @@ public class ItemLibraryResource {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/cadastrar")
+	@Path("/alterar/{id}")
 	public Response alterarItem(ItemLibrary itemLibrary){
 		try{
 			boolean isItemGravado = new ItemLibraryDao().alterar(itemLibrary);
@@ -51,6 +51,23 @@ public class ItemLibraryResource {
 				return Response.ok().entity(itemLibrary).build();
 			}else{
 				return Response.status(500).entity("Erro ao alterar o item no banco").build();
+			}
+		}catch(Exception e){
+			return Response.status(500).entity("Erro de banco").build();
+		}
+	}
+
+	@DEL
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/excluir/{id}")
+	public Response alterarItem(ItemLibrary itemLibrary){
+		try{
+			boolean isItemGravado = new ItemLibraryDao().excluir(itemLibrary);
+			if(isItemGravado){
+				return Response.ok().entity(itemLibrary).build();
+			}else{
+				return Response.status(500).entity("Erro ao excluir o item no banco").build();
 			}
 		}catch(Exception e){
 			return Response.status(500).entity("Erro de banco").build();
