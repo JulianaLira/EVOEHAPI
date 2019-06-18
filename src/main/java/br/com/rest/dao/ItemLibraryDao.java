@@ -54,7 +54,7 @@ public class ItemLibraryDao extends Dao {
 		boolean SUCESS = false;
 		try{
 			open();
-			stmt = con.prepareStatement("detete from itemlibrary where codigo=?");
+			stmt = con.prepareStatement("delete from itemlibrary where codigo=?");
 			stmt.setInt(1, itemLibrary.getCodigo());
 			stmt.execute();
 			SUCESS = true;	
