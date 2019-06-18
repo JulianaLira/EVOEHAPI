@@ -11,7 +11,7 @@ public class ItemLibraryDao extends Dao {
 		try{
 			open();
 			stmt = con.prepareStatement("insert into itemlibrary values(?,?,?,?,?,?,?)");
-			titulo, tipo, data, numeroEdicao, autor, editora, descricao
+
 			stmt.setString(1, null);
 			stmt.setString(2, itemLibrary.getTitulo());
 			stmt.setString(3, itemLibrary.getTipo());

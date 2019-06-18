@@ -28,6 +28,10 @@ public class ItemLibrary {
 		this.descricao = descricao;
 	}
 
+	public String getCodigo() {
+		return codigo;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -44,7 +48,7 @@ public class ItemLibrary {
 		this.tipo = tipo;
 	}
 
-	public String getDada() {
+	public String getData() {
 		return data;
 	}
 
@@ -74,6 +78,14 @@ public class ItemLibrary {
 
 	public void setEditora(String editora) {
 		this.editora = editora;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	@Override
